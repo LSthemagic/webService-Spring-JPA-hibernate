@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lsprojects.course.entities.User;
+import com.lsprojects.course.repositories.UserRepository;
+
 import org.springframework.web.bind.annotation.GetMapping;
 
 
@@ -15,6 +17,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @RestController
 @RequestMapping(value = "/users")
 public class UserResource {
+	
+//	private UserRepository userRepository;
 
 	@GetMapping("/listUsers")
 	public ResponseEntity<List<User>> findAll() {
