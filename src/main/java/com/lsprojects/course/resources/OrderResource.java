@@ -18,7 +18,7 @@ public class OrderResource {
 	@Autowired
 	private OrderService orderService;
 
-	@GetMapping("/listOrders")
+	@GetMapping
 	public ResponseEntity<List<Order>> findAll() {
 		List<Order> list = orderService.findAll();
 		return ResponseEntity.ok().body(list);
@@ -26,7 +26,7 @@ public class OrderResource {
 
 	@GetMapping("/{id}")
 	public ResponseEntity<Order> findById(@PathVariable Long id) {
-		Order obj = orderService.findByIDOrder(id);
+		Order obj = orderService.findByID(id);
 		return ResponseEntity.ok().body(obj);
 	}
 

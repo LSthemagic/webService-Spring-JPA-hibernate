@@ -20,7 +20,7 @@ public class UserResource {
 	@Autowired
 	private UserService userService;
 	
-	@GetMapping("/listUsers")
+	@GetMapping
 	public ResponseEntity<List<User>> findAll(){
 		List<User> list = userService.findAll();
 		return ResponseEntity.ok().body(list);
@@ -29,7 +29,7 @@ public class UserResource {
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<User> findById(@PathVariable Long id) {
-		User obj = userService.findByIdUser(id);
+		User obj = userService.findById(id);
 		return ResponseEntity.ok().body(obj);
 	}
 	
