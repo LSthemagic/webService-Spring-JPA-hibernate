@@ -12,14 +12,14 @@ import com.lsprojects.course.repositories.CategoryRepository;
 @Service
 public class CategoryService {
 	@Autowired
-	private CategoryRepository orderRepository;
+	private CategoryRepository categoryRepository;
 
 	public List<Category> findAll() {
-		return orderRepository.findAll();
+		return categoryRepository.findAll();
 	}
 
 	public Category findByID(Long id) {
-		Optional<Category> obj = orderRepository.findById(id);
+		Optional<Category> obj = categoryRepository.findById(id);
 		return obj.get();
 	}
 
