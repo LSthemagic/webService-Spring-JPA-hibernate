@@ -25,7 +25,6 @@ public class UserService {
 
 	public User findById(Long id) {
 		Optional<User> obj = userRepository.findById(id);
-		System.out.println("ta na segunda camada de findiByid");
 		return obj.orElseThrow(() -> new ResourceNotFoundException(id));
 	}
 

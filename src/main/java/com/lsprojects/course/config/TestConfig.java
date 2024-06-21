@@ -22,7 +22,7 @@ import com.lsprojects.course.repositories.ProductRepository;
 import com.lsprojects.course.repositories.UserRepository;
 
 @Configuration
-@Profile("test")
+@Profile("dev")
 public class TestConfig implements CommandLineRunner {
 
 	@Autowired
