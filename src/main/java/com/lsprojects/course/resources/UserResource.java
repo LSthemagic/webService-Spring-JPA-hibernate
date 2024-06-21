@@ -34,6 +34,7 @@ public class UserResource {
 	@GetMapping("/{id}")
 	public ResponseEntity<User> findById(@PathVariable Long id) {
 		User obj = userService.findById(id);
+		System.out.println("ta em findbyid");
 		return ResponseEntity.ok().body(obj);
 	}
 
@@ -47,6 +48,7 @@ public class UserResource {
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> delete(@PathVariable Long id) {
 		userService.delete(id);
+		System.out.println("ta em delete");
 		return ResponseEntity.noContent().build();
 	}
 	
@@ -55,14 +57,5 @@ public class UserResource {
 		obj = userService.update(id, obj);
 		return ResponseEntity.ok().body(obj);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }
