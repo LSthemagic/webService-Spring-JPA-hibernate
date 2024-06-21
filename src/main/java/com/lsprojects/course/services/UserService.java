@@ -12,6 +12,8 @@ import com.lsprojects.course.repositories.UserRepository;
 import com.lsprojects.course.services.exceptions.DatabaseException;
 import com.lsprojects.course.services.exceptions.ResourceNotFoundException;
 
+import jakarta.persistence.EntityNotFoundException;
+
 @Service
 public class UserService {
 	@Autowired
@@ -44,10 +46,13 @@ public class UserService {
 	}
 
 	public User update(Long id, User obj) {
-
+		try {
 		User entity = userRepository.getReferenceById(id);
 		updateDate(entity, obj);
 		return userRepository.save(entity);
+		}catch(EntityNotFoundException e) {
+			throw new ResourceNotFoundException(id);
+		}
 	}
 
 	private void updateDate(User entity, User obj) {
